@@ -1,0 +1,43 @@
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/92334)
+
+## 풀이
+```java
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
+class Solution {
+    public int[] solution(String[] id_list, String[] report, int k) {
+        int[] answer = new int[id_list.length];
+        
+        // Key : 사용자, Value : Key를 신고한 사용자를 Set(중복 제거를 위함)에 담음
+        Map<String, HashSet<String>> reportMap = new HashMap<>();
+        // Key : 사용자, Value : 배열answer에 Key가 받을 메일의 횟수를 저장하는 위치
+        Map<String, Integer> idxMap = new HashMap<>();
+
+        for (int i = 0; i < id_list.length; i++) {
+            String name = id_list[i];
+            reportMap.put(name, new HashSet<>());
+            idxMap.put(name, i);
+        }
+
+        for (String s : report) {
+            String[] str = s.split(" ");
+            String from = str[0];
+            String to = str[1];
+            reportMap.get(to).add(from);
+        }
+
+        for (int i = 0; i < id_list.length; i++) {
+            HashSet<String> send = reportMap.get(id_list[i]);
+            if (send.size() >= k) {
+                for (String name : send) {
+                    answer[idxMap.get(name)]++;
+                }
+            }
+        }
+
+        return answer;
+    }
+}
+```
