@@ -1,0 +1,35 @@
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12939)
+
+## 풀이
+```java
+import java.util.*;
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        
+        // 공백으로 구분 된 숫자를 잘라 배열에 담음
+        String[] list = s.split(" ");
+        
+        // 최대값, 최소값을 정의
+        int max = Integer.parseInt(list[0]);
+        int min = Integer.parseInt(list[0]);
+        
+        for (int i=0; i<list.length; i++) {
+            Integer check = Integer.parseInt(list[i]);
+            
+            if (check > max) {
+                max = check;
+            }
+            if (check < min) {
+                min = check;
+            }
+        }
+        
+        answer = min + " " + max;
+        
+        
+        return answer;
+    }
+}
+```
