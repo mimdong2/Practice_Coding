@@ -46,6 +46,7 @@ class Solution {
 ```
 
 ## 다른 사람 풀이
+- 타 풀이자의 놀라운 풀이력을 보며 느낀것은, 문제 하나하나 조건마다 따지려는 것보다 때로는 아예 단순하게 생각해버리는 방법도 있다는 점!?!
 ```java
 // Sunhee Shin , 조희준 , LimHanGyeol , wonsangki , 모아나 외 9 명
 class Solution {
